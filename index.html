@@ -1,0 +1,300 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>three.js — 跨浏览器 3D 库的现代入口</title>
+    <meta
+      name="description"
+      content="three.js 是一款易用、轻量、跨浏览器的 JavaScript 3D 库。本页收录示例、文档、手册、Wiki 与社区入口。"
+    />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%23f6f3ec'/><rect x='8' y='8' width='16' height='16' fill='none' stroke='%23181816' stroke-width='1.5'/><path d='M8 8 L24 24 M24 8 L8 24' stroke='%23c2410c' stroke-width='1.5'/></svg>"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..900&family=Inter+Tight:wght@300..700&family=JetBrains+Mono:wght@400..600&family=Noto+Serif+SC:wght@400..700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://unpkg.com/three@0.185.0/build/three.module.js",
+          "three/addons/": "https://unpkg.com/three@0.185.0/examples/jsm/"
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <div class="grain" aria-hidden="true"></div>
+
+    <header class="topbar" data-reveal>
+      <div class="topbar__inner">
+        <a class="brand" href="#top" aria-label="three.js 首页">
+          <span class="brand__mark" aria-hidden="true">
+            <svg viewBox="0 0 32 32" width="22" height="22">
+              <rect
+                x="6"
+                y="6"
+                width="20"
+                height="20"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+              />
+              <path
+                d="M6 6 L26 26 M26 6 L6 26"
+                stroke="currentColor"
+                stroke-width="1.5"
+              />
+            </svg>
+          </span>
+          <span class="brand__name"
+            >three<span class="brand__dot">.</span>js</span
+          >
+        </a>
+        <nav class="nav" aria-label="主导航">
+          <a href="#features">特性</a>
+          <a href="#code">代码</a>
+          <a href="#resources">资源</a>
+          <a href="#start">快速开始</a>
+        </nav>
+        <div class="topbar__meta">
+          <span class="mono">v0.185.0</span>
+        </div>
+      </div>
+    </header>
+
+    <main id="top">
+      <!-- HERO -->
+      <section class="hero" data-reveal>
+        <div class="hero__grid">
+          <div class="hero__text">
+            <p class="eyebrow">№ 01 &nbsp;·&nbsp; JavaScript 3D 库</p>
+            <h1 class="display">
+              让浏览器成为<br />
+              <em>画布</em>与<em>舞台</em>。
+            </h1>
+            <p class="lede">
+              three.js 是一款易用、轻量、跨浏览器的通用 3D 库。当前构建包含
+              WebGL 与 WebGPU 渲染器，SVG 与 CSS3D 渲染器可作为附加组件使用。
+            </p>
+            <div class="hero__cta">
+              <a class="btn btn--primary" href="#start">快速开始</a>
+              <a class="btn btn--ghost" href="#code">查看示例</a>
+            </div>
+          </div>
+          <div class="hero__stage" aria-label="实时 three.js 翻书动画">
+            <canvas
+              id="hero-canvas"
+              role="img"
+              aria-label="翻动的古朴精装书"
+            ></canvas>
+            <div class="hero__caption mono">page · spine · ribbon · turn</div>
+          </div>
+        </div>
+        <div class="rule" aria-hidden="true"></div>
+      </section>
+
+      <!-- FEATURES -->
+      <section class="features" id="features" data-reveal>
+        <div class="section-head">
+          <p class="eyebrow">№ 02 &nbsp;·&nbsp; 核心特性</p>
+          <h2 class="section-title">四件它擅长的事。</h2>
+        </div>
+        <div class="features__grid" id="features-grid"></div>
+      </section>
+
+      <!-- SHOWCASE -->
+      <section class="showcase" id="showcase" data-reveal>
+        <div class="section-head">
+          <p class="eyebrow">№ 03 &nbsp;·&nbsp; 视觉作品</p>
+          <h2 class="section-title">四个由 three.js 驱动的实时演示。</h2>
+          <p class="section-sub">
+            点阵星云、脉冲晶体、液态水波、莫比乌斯带 —— 全部由
+            <span class="mono">r185</span> 的 WebGL
+            渲染管线生成，进入视口才开始渲染以节省资源。
+          </p>
+        </div>
+        <div class="showcase__grid" id="showcase-grid"></div>
+      </section>
+
+      <!-- CODE -->
+      <section class="code" id="code" data-reveal>
+        <div class="section-head">
+          <p class="eyebrow">№ 04 &nbsp;·&nbsp; 30 秒示例</p>
+          <h2 class="section-title">一段最小可运行代码。</h2>
+          <p class="section-sub">
+            创建一个场景、相机与几何立方体，附加到
+            <span class="mono">document.body</span>，然后逐帧播放动画。
+          </p>
+        </div>
+        <figure class="code__panel">
+          <div class="code__bar">
+            <span class="dot dot--r" aria-hidden="true"></span>
+            <span class="dot dot--y" aria-hidden="true"></span>
+            <span class="dot dot--g" aria-hidden="true"></span>
+            <span class="code__file mono">index.js</span>
+            <button
+              class="code__copy"
+              type="button"
+              id="copy-btn"
+              aria-label="复制代码"
+            >
+              <svg
+                viewBox="0 0 24 24"
+                width="14"
+                height="14"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.6"
+              >
+                <rect x="9" y="9" width="11" height="11" rx="1.5" />
+                <path d="M5 15V5a1 1 0 0 1 1-1h10" />
+              </svg>
+              <span>复制</span>
+            </button>
+          </div>
+          <pre class="code__body" id="code-block"></pre>
+          <figcaption class="code__meta">
+            <a
+              class="link-underline"
+              href="https://jsfiddle.net/w43x5Lgh/"
+              target="_blank"
+              rel="noopener"
+            >
+              <span>在 JSFiddle 打开</span>
+              <svg
+                viewBox="0 0 24 24"
+                width="12"
+                height="12"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.6"
+              >
+                <path d="M7 17 17 7M9 7h8v8" />
+              </svg>
+            </a>
+          </figcaption>
+        </figure>
+      </section>
+
+      <!-- RESOURCES -->
+      <section class="resources" id="resources" data-reveal>
+        <div class="section-head">
+          <p class="eyebrow">№ 05 &nbsp;·&nbsp; 资源目录</p>
+          <h2 class="section-title">八扇门，通向 three.js。</h2>
+        </div>
+        <div class="resources__grid" id="resources-grid"></div>
+      </section>
+
+      <!-- GET STARTED -->
+      <section class="cta" id="start" data-reveal>
+        <div class="section-head">
+          <p class="eyebrow">№ 06 &nbsp;·&nbsp; 快速开始</p>
+          <h2 class="section-title">克隆仓库，几分钟内启动。</h2>
+          <p class="section-sub">
+            完整历史约 2GB。使用
+            <span class="mono">--depth=1</span> 可显著减小下载体积。
+          </p>
+        </div>
+        <div class="cta__panel">
+          <pre class="cta__command mono" id="clone-cmd"></pre>
+          <button
+            class="code__copy code__copy--solid"
+            type="button"
+            id="clone-copy"
+            aria-label="复制克隆命令"
+          >
+            <svg
+              viewBox="0 0 24 24"
+              width="14"
+              height="14"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.6"
+            >
+              <rect x="9" y="9" width="11" height="11" rx="1.5" />
+              <path d="M5 15V5a1 1 0 0 1 1-1h10" />
+            </svg>
+            <span>复制</span>
+          </button>
+        </div>
+        <div class="cta__badges">
+          <a
+            class="badge"
+            href="https://www.npmjs.com/package/three"
+            target="_blank"
+            rel="noopener"
+            >NPM <span class="badge__v">v0.185.0</span></a
+          >
+          <a
+            class="badge"
+            href="https://bundlephobia.com/result?p=three"
+            target="_blank"
+            rel="noopener"
+            >GZIP <span class="badge__v">≈ 160 KB</span></a
+          >
+          <a
+            class="badge"
+            href="https://github.com/mrdoob/three.js/releases"
+            target="_blank"
+            rel="noopener"
+            >RELEASES <span class="badge__v">r185</span></a
+          >
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer" data-reveal>
+      <div class="footer__inner">
+        <div class="footer__col">
+          <p class="eyebrow">项目</p>
+          <a
+            href="https://github.com/mrdoob/three.js"
+            target="_blank"
+            rel="noopener"
+            >GitHub</a
+          >
+          <a href="https://threejs.org" target="_blank" rel="noopener">官网</a>
+          <a
+            href="https://github.com/mrdoob/three.js/releases"
+            target="_blank"
+            rel="noopener"
+            >更新日志</a
+          >
+        </div>
+        <div class="footer__col">
+          <p class="eyebrow">社区</p>
+          <a
+            href="https://discourse.threejs.org/"
+            target="_blank"
+            rel="noopener"
+            >论坛</a
+          >
+          <a
+            href="https://stackoverflow.com/questions/tagged/three.js"
+            target="_blank"
+            rel="noopener"
+            >Stack Overflow</a
+          >
+          <a href="https://discord.gg/56GBJwAnUS" target="_blank" rel="noopener"
+            >Discord</a
+          >
+        </div>
+        <div class="footer__col footer__col--end">
+          <p class="mono">© 2010–2026 three.js authors · MIT License</p>
+          <p class="mono dim">
+            本页为社区编辑整理，与 mrdoob/three.js 官方无隶属关系。
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <script type="module" src="script.js"></script>
+  </body>
+</html>
